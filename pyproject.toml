@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "api-smart-link"
+version = "0.1.0"
+description = ""
+authors = ["aK0nshin <kon2work@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aiohttp = "^3.6.2"
+uvloop = "^0.14.0"
+aiohttp_apispec = "^2.2.1"
+marshmallow_dataclass = "^8.0.0"
+click = "^7.1.2"
+databases = {extras = ["postgresql"], version = "^0.3.2"}
+ipython = "^7.18.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.2"
+
+[tool.poetry.plugins."console_scripts"]
+"api-smart-link-ctl" = "api_smart_link.commands:cli"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
