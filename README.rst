@@ -8,8 +8,8 @@ Quick Run
 ```bash
 cd api-smart-link
 poetry install
-# if you are using direnv
 cp .env.example .env
+# if you are using direnv
 direnv allow
 ```
 
@@ -19,18 +19,25 @@ Configure .env file or set OS environments:
 * **LISTEN_PORT** - Port, that app will listen
 * **LISTEN_HOST** - Host, that app will listen
 
-* **DB_NAME** - Database name
-* **DB_MAX_CON** - Max database connection for poll
-* **DB_USER** - Database user name
-* **DB_PASSWORD** - Password for database user
-* **DB_HOST** - Host for DB instance
-* **DB_PORT** - Database port
+* **DB_URL** - Database name
 * **LOG_LEVEL** - App's default log level
 
 Commands
 ---------
 1. Run server
-
     ```bash
     api-smart-link-ctl server run
     ```
+
+2. Migrations
+    Create revision
+    ```bash
+    alembic revision -m "Migration name" --autogenerate
+    ```
+
+    Run migrations
+    ```bash
+    alembic upgrade head
+    ```
+
+

@@ -1,5 +1,6 @@
 from aiohttp import web
 from api_smart_link.apispec import validation_middleware, setup_app_apispec
+from api_smart_link.database.connection import connect_db, disconnect_db
 
 from api_smart_link.log_manager import log_manager
 from api_smart_link.middlewares import internal_error_middleware, validation_error_middleware
@@ -20,6 +21,8 @@ def make_app(app):
                       request_data_name='validated_data', swagger_path='/api/doc',
                       static_path="/api/static/swagger")
     app.middlewares.extend([validation_error_middleware, internal_error_middleware, validation_middleware])
+    app.on_startup.append(connect_db)
+    app.on_cleanup.append(disconnect_db)
     return app
 
 
