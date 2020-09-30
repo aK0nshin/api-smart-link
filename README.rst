@@ -5,13 +5,15 @@ Beautiful small page manager.
 
 Quick Run
 ---------
-```bash
-cd api-smart-link
-poetry install
-cp .env.example .env
-# if you are using direnv
-direnv allow
-```
+
+::
+
+    $ cd api-smart-link
+    $ poetry install
+    $ cp .env.example .env
+    # if you are using direnv
+    $ direnv allow
+
 
 For local development we recommend using [direnv](https://direnv.net/)
 Configure .env file or set OS environments:
@@ -25,19 +27,17 @@ Configure .env file or set OS environments:
 Commands
 ---------
 1. Run server
-    ```bash
-    api-smart-link-ctl server run
-    ```
+
+::
+
+    $ api-smart-link-ctl server run
 
 2. Migrations
-    Create revision
-    ```bash
-    alembic revision -m "Migration name" --autogenerate
-    ```
 
-    Run migrations
-    ```bash
+Create revision::
+
+    $ alembic revision -m "Migration name" --autogenerate
+
+Run migrations::
+
     alembic upgrade head
-    ```
-
-
