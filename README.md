@@ -13,6 +13,8 @@ Quick Run
     $ cp .env.example .env
     # if you are using direnv
     $ direnv allow
+    $ alembic upgrade head
+    $ api-smart-link-ctl server run
 
 
 For local development we recommend using [direnv](https://direnv.net/)
@@ -34,10 +36,10 @@ Commands
 
 2. Migrations
 
-Create revision::
+- Create migration::
 
     $ alembic revision -m "Migration name" --autogenerate
 
-Run migrations::
+- Run all migrations::
 
     alembic upgrade head
