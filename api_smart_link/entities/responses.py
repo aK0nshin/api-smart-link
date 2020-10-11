@@ -1,5 +1,5 @@
 from dataclasses import field, dataclass
-from typing import Optional
+from typing import Optional, List
 
 from marshmallow_dataclass import add_schema
 
@@ -26,3 +26,39 @@ class ResponseSuccess(BaseEntity):
 @dataclass
 class ResponseSuccessData(BaseEntity):
     data: ResponseSuccess = field()
+
+
+@add_schema(base_schema=Base)
+@dataclass
+class ResponsePage(BaseEntity):
+    id: int = field()
+    content: dict = field()
+
+
+@add_schema(base_schema=Base)
+@dataclass
+class ResponsePageData(BaseEntity):
+    data: ResponsePage = field()
+
+
+@add_schema(base_schema=Base)
+@dataclass
+class ResponsePageListData(BaseEntity):
+    data: List[ResponsePage] = field()
+    offset: int = field()
+    limit: int = field()
+    total: int = field()
+
+
+@add_schema(base_schema=Base)
+@dataclass
+class ResponseUser(BaseEntity):
+    id: int = field()
+    name: str = field()
+    email: str = field()
+
+
+@add_schema(base_schema=Base)
+@dataclass
+class ResponseUserData(BaseEntity):
+    data: ResponseUser = field()

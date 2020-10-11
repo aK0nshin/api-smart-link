@@ -97,6 +97,7 @@ class LogManager(object, metaclass=Singleton):
 build_config()
 
 external = {
+    'databases': storage.config.log_level,
     'aiohttp.client': storage.config.log_level,
     'aiohttp.server': storage.config.log_level,
     'aiohttp.web': storage.config.log_level,
